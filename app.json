@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "telegram",
+    "name": "Telegram",
     "slug": "telegram",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -12,10 +12,15 @@
       "supportsTablet": true
     },
     "android": {
+      "googleServiceFile": "./google-services.json",
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.krishkumarchhabra25.telegram",
+      "permissions": [
+        "android.permission.RECORD_AUDIO"
+      ]
     },
     "web": {
       "bundler": "metro",
@@ -25,17 +30,37 @@
     "plugins": [
       "expo-router",
       [
+        "@react-native-google-signin/google-signin"
+      ],
+      [
         "expo-splash-screen",
         {
-          "image": "./assets/images/splash-icon.png",
+          "image": "./assets/images/splash.png",
           "imageWidth": 200,
           "resizeMode": "contain",
-          "backgroundColor": "#ffffff"
+          "backgroundColor": "#1E2732"
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Allow ${PRODUCT_NAME} to access your project",
+          "cameraPermission": "Allow ${PRODUCT_NAME} to open the camera",
+          "microphonePermission": "Allow ${PRODUCT_NAME} to access your microphone"
         }
       ]
     ],
     "experiments": {
-      "typedRoutes": true
+      "typedRoutes": true,
+      "tsconfigPaths": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "fcebb072-0985-4421-8bbc-5f3bdbc7a473"
+      }
     }
   }
 }
